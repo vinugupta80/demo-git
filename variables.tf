@@ -1,1 +1,1 @@
-variable "credientials" {}
+variable "credentials" {}
