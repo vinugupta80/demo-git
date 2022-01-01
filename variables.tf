@@ -1,1 +1,4 @@
-variable "credentials" {}
+variable "credentials" {
+  type = string
+}
+
