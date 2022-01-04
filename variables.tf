@@ -2,3 +2,6 @@
 #  type = string
 #}
 
+variable "credentials" {
+  type = string
+}
