@@ -1,43 +1,43 @@
-provider  "google" {
-  project     = "my-first-project-ngu"
+provider "google" {
+  project = "my-first-project-ngu"
   #credentials = "C:/Users/zvrk0752/Downloads/cred.json"
   #credentials = var.credentials
-  region      = "asia-south2"
-  zone         = "asia-south2-a"
+  region = "asia-south2"
+  zone   = "asia-south2-a"
 
 }
 
 resource "google_compute_address" "external" {
-    name         = "ext-ip-vm1-vm-terraform"
-    address_type = "EXTERNAL"
-    region       = "asia-south2"
+  name         = "ext-ip-vm1-vm-terraform"
+  address_type = "EXTERNAL"
+  region       = "asia-south2"
 }
 
 resource "google_compute_instance" "vm_terraform" {
-      project     = "my-first-project-ngu"
-      name         = "vm1-terraform"
-  		machine_type = "n1-standard-1"
+  project      = "my-first-project-ngu"
+  name         = "vm1-terraform"
+  machine_type = "n1-standard-1"
 
-              boot_disk {
-      			    initialize_params {
-      			      image = "debian-cloud/debian-10"
-      			    }
-      			  }
-      			  network_interface {
-      			    network = "asia-delhi-vpc1"
-                subnetwork = "asia-south2-subnet"
-      			    access_config {
-                 nat_ip = google_compute_address.external.address
-      			    }
-      			  }
-              service_account {
-                email  = "terraform-sa@my-first-project-ngu.iam.gserviceaccount.com"
-                scopes = ["cloud-platform"]
-                }
+  boot_disk {
+    initialize_params {
+      image = "debian-cloud/debian-10"
+    }
+  }
+  network_interface {
+    network    = "asia-delhi-vpc1"
+    subnetwork = "asia-south2-subnet"
+    access_config {
+      nat_ip = google_compute_address.external.address
+    }
+  }
+  service_account {
+    email  = "terraform-sa@my-first-project-ngu.iam.gserviceaccount.com"
+    scopes = ["cloud-platform"]
+  }
 
-                provisioner  "local-exec" {
-                  command = "echo the server IP address is ${self.name} >> private_ip.txt"
-                }
+  provisioner "local-exec" {
+    command = "echo the server IP address is ${self.name} >> private_ip.txt"
+  }
 }
 
 
