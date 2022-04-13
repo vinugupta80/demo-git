@@ -72,7 +72,13 @@ output "ext-ip-details" {
 */
 
 # File updated in branch vipin
+<<<<<<< HEAD
 # File update in Main Branch
 # File change in vipin btanch v2
 
 File change in main branch v2 
+=======
+# File change in vipin btanch v2
+
+# file chanege in branch vipin v3
+>>>>>>> b-vipin
