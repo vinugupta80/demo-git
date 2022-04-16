@@ -82,3 +82,4 @@ output "ext-ip-details" {
 
 # Close the task 3
 # Close the task 3 , try 1
+# Close the task 3 , try 2
