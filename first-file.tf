@@ -79,3 +79,5 @@ output "ext-ip-details" {
 # Demo for close task # integration
 
 # Demo fpr task 3 in AZ-Board
+
+# Close the task 3
